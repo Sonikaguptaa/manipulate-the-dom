@@ -21,20 +21,21 @@ document.addEventListener("DOMContentLoaded", function (event) {
   // Part 1
 
   let Header = document.querySelector("#main-title");
-
   Header.innerText = "Welcome!! I am DOM Toretto";
 
   // // Part 2
 
   let body = document.querySelector("body");
 
-  body.style.backgroundColor = "Yellow";
+  body.style.backgroundColor = "lightBlue";
 
   // Part 3
   let fav = document.querySelector("#favorite-things");
   fav.removeChild(fav.lastElementChild);
+
   // Part 4
   let speTi = document.querySelectorAll(".special-title");
+  //speTi.style.fontSize = "2rem";
   for (let i of speTi) {
     i.style.fontSize = "2rem";
   }
@@ -50,10 +51,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
 
   // Part 6
+
   let den = document.createElement("li");
   den.innerText = "Denver";
   pastR.appendChild(den);
+
   // Part 7
+
   const mainDiv = document.querySelector(".main");
   let denBlog = document.createElement("div");
   denBlog.setAttribute("class", "blog-post purple");
@@ -62,28 +66,30 @@ document.addEventListener("DOMContentLoaded", function (event) {
   denBlog.innerHTML = `<h1>${den.innerText}</h1>
   <p>The Mile High City!</p>`;
   mainDiv.appendChild(denBlog);
+
   // Part 8
+
   const ranQ = document.querySelector("#quote-title");
-
-  ranQ.addEventListener("click", (event) => {
+  ranQ.addEventListener("Click", (handleClick) => {
     randomQuote();
-
-    // Part 9
-
-    const allBlogs = document.querySelectorAll(".blog-post");
-
-    for (const i of allBlogs) {
-      for (j of i.children) {
-        j.style.pointerEvents = "none";
-      }
-      i.addEventListener("mouseout", (event) => {
-        event.target.classList.toggle("purple");
-        event.target.classList.toggle("red");
-      });
-      i.addEventListener("mouseenter", (event) => {
-        event.target.classList.toggle("red");
-        event.target.classList.toggle("purple");
-      });
-    }
   });
+
+  // Part 9
+
+  const allBlogs = document.querySelectorAll(".blog-post");
+
+  for (const i of allBlogs) {
+    for (let j of i.children) {
+      j.style.pointerEvents = "none";
+    }
+    i.addEventListener("mouseout", (event) => {
+      event.target.classList.toggle("purple");
+      event.target.classList.toggle("red");
+    });
+    i.addEventListener("mouseenter", (event) => {
+      event.target.classList.toggle("red");
+      event.target.classList.toggle("purple");
+    });
+  }
 });
+
